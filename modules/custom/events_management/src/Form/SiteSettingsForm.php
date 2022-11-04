@@ -5,6 +5,7 @@ namespace Drupal\events_management\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\events_management\Repository\EtaxDB;
+use Drupal\events_management\Repository\EventDB;
 use Drupal\events_management\Utility\EtaxHelper;
 
 class SiteSettingsForm extends ConfigFormBase
@@ -57,6 +58,7 @@ class SiteSettingsForm extends ConfigFormBase
         \Drupal::configFactory()->getEditable('events_management.linkdev_task_settings')
             ->set('site_settings', $values)
             ->save();
-        \Drupal::messenger()->addStatus($this->t('Successfully saved settings.'));
+        $log=EventDB::insert_config_log($values);
+        \Drupal::messenger()->addStatus($this->t('setting saved Successfully saved.'));
     }
 }
