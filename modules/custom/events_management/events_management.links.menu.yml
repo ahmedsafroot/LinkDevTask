@@ -1,0 +1,13 @@
+events_management.linkdev_task_settings:
+  title: 'Link Development Task Settings'
+  description: 'Link Development Task Settings'
+  parent: system.admin_config
+  route_name: events_management.linkdev_task_settings
+  weight: -998
+
+events_management.linkdev_task_settings.site_settings:
+  title: 'Event Management'
+  description: 'Event Management settings'
+  parent: events_management.linkdev_task_settings
+  route_name: events_management.site_settings
+  weight: 10
