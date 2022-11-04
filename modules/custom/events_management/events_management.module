@@ -1,5 +1,43 @@
 <?php
 
+/**
+ * Implements hook_theme().
+ */
+function events_management_theme($existing, $type, $theme, $path) {
+
+  return [
+    'admin_listing_events' => [
+      'variables' => [
+        'events' => null,
+        'categories'=>null,
+        'pager' => NULL,
+      ]
+    ],
+    'new_event_form' => [
+      'render element' => 'form'
+    ],
+    'new_event_form_wrapper' => [
+      'variables' => [
+        'new_event_form' => null,
+      ]
+    ],
+    'event_details' => [
+      'variables' => [
+        'event' => null,
+        'categories'=>null,
+      ]
+    ],
+    'edit_event_form' => [
+      'render element' => 'form'
+    ],
+    'edit_event_form_wrapper' => [
+      'variables' => [
+        'edit_event_form' => null,
+      ]
+    ],
+
+  ];
+}
 
 
 

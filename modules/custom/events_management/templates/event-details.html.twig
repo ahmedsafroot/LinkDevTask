@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+
+        <div class="col-md-6">
+          <div class="card-detilas mt-2">
+            <h4 class="card-title">{{ 'Title'|t }}</h4>
+            <p class="card-name">{{ event.title }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-detilas mt-2">
+            <h5 class="card-title">{{ 'Image'|t }}</h5>
+            <p class="card-name">
+              <img src="{{ event.image }}" width="200px" height="200px"/>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-detilas mt-3">
+            <h5 class="card-title">{{ 'Description'|t }}</h5>
+            <p class="card-name">{{ event.description }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-detilas mt-3">
+            <h5 class="card-title">{{ 'start_date'|t }}</h5>
+            <p class="card-name">{{ event.start_date|date('d-m-Y') }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-detilas mt-3">
+            <h5 class="card-title">{{ 'end_date'|t }}</h5>
+            <p class="card-name">{{ event.end_date|date('d-m-Y') }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-detilas mt-3">
+            <h5 class="card-title">{{ 'Category'|t }}</h5>
+            <p class="card-name">{{ categories[event.category] }}</p>
+          </div>
+        </div>
+
+
+
+  </div>
+
+</div>

@@ -13,3 +13,43 @@ events_management.site_settings:
     _title: 'Event Management settings'
   requirements:
     _permission: 'access administration pages'
+
+events_management.admin_listing_events:
+  path: '/admin/listing-events'
+  defaults:
+    _title: 'Listing Events'
+    _controller: '\Drupal\events_management\Controller\EventsController::admin_listing_events'
+  requirements:
+    _permission: 'access administration pages'
+
+events_management.admin_add_new_event:
+  path: '/admin/add-new-event'
+  defaults:
+    _title: 'Add New Event'
+    _controller: '\Drupal\events_management\Controller\EventsController::add_new_event'
+  requirements:
+    _permission: 'access administration pages'
+
+events_management.admin_view_event:
+  path: '/admin/view-event/{id}'
+  defaults:
+    _title: 'View Event'
+    _controller: '\Drupal\events_management\Controller\EventsController::view_event'
+  requirements:
+    _permission: 'access administration pages'
+
+events_management.edit_event:
+  path: '/admin/edit-event/{id}'
+  defaults:
+    _title: 'Edit Event'
+    _controller: '\Drupal\events_management\Controller\EventsController::edit_event'
+  requirements:
+    _permission: 'access administration pages'
+
+events_management.delete_event:
+  path: '/admin/delete-event/{id}'
+  defaults:
+    _title: 'Edit Event'
+    _controller: '\Drupal\events_management\Controller\EventsController::delete_event'
+  requirements:
+    _permission: 'access administration pages'

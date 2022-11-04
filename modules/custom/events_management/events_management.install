@@ -8,6 +8,7 @@ use Drupal\Core\Database\Database;
 function events_management_install() {
   events_management_update_9100();
   events_management_update_9101();
+  events_management_update_9102();
 }
 
 
@@ -30,7 +31,7 @@ function events_management_update_9100() {
         'start_date' => ['type' => 'int', 'not null' => TRUE],//timestamp
         'end_date' => ['type' => 'int', 'not null' => TRUE],//timestamp
         'admin_id' => ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE],
-        'created' => ['type' => 'int', 'not null' => TRUE],//timestamp
+        'created_at' => ['type' => 'int', 'not null' => TRUE],//timestamp
       ],
       'primary key' => ['id'],
       'indexes' => ['id' => ['id'], 'admin_id' => ['admin_id']],
@@ -73,5 +74,16 @@ function events_management_update_9101() {
     ];
 
     $schema->createTable('config_logs', $tbl);
+  }
+}
+
+/**
+ * add category column to events table
+ */
+function events_management_update_9102() {
+  $schema = Database::getConnection()->schema();
+  $category_field = ['type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE];
+  if(!$schema->fieldExists('events', 'category')) {
+    $schema->addField('events', 'category', $category_field);
   }
 }
