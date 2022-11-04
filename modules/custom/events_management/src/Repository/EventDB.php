@@ -47,10 +47,6 @@ class EventDB {
     $query = self::$db_conn->select('events', 'e');
     $query->fields('e');
     $config_values = \Drupal::config('events_management.linkdev_task_settings')->get('site_settings');
-//    $query->condition('e.start_date', time(),'>=');
-//    if(empty($config_values['past_events']) || $config_values['past_events']==0){
-//      $query->condition('e.end_date', time(),'<');
-//    }
 
     if(empty($config_values['events_numbers'])){
       $num_events=10;
@@ -130,6 +126,32 @@ class EventDB {
       $exec = false;
     }
     return $exec;
+  }
+
+  /**
+   * This function get published events
+   */
+  public static function get_published_events(){
+    self::initialize();
+
+    $query = self::$db_conn->select('events', 'e');
+    $query->fields('e');
+    $config_values = \Drupal::config('events_management.linkdev_task_settings')->get('site_settings');
+    $query->condition('e.start_date', time(),'<=');
+    if(empty($config_values['past_events']) || $config_values['past_events']==0){
+      $query->condition('e.end_date', time(),'>=');
+    }
+
+    if(empty($config_values['events_numbers'])){
+      $num_events=10;
+    }else{
+      $num_events=$config_values['events_numbers'];
+    }
+
+    $pager = $query->extend('Drupal\Core\Database\Query\PagerSelectExtender')
+      ->limit($num_events);
+    $result = $pager->execute()->fetchAll(\PDO::FETCH_ASSOC);
+    return $result;
   }
 
 }

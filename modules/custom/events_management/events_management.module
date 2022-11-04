@@ -36,6 +36,14 @@ function events_management_theme($existing, $type, $theme, $path) {
       ]
     ],
 
+    'listing_events' => [
+      'variables' => [
+        'events' => null,
+        'categories'=>null,
+        'pager' => NULL,
+      ]
+    ],
+
   ];
 }
 

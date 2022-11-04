@@ -61,6 +61,19 @@ class EventsController extends ControllerBase
     return new RedirectResponse(Url::fromRoute('events_management.admin_listing_events')->setAbsolute()->toString());
 
   }
+  public function listing_events(){
+    $events = EventDB::get_published_events();
+    $curr_lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $categories=EventHelper::categories(null,$curr_lang);
+    return [
+      '#theme' => 'listing_events',
+      '#events' => $events,
+      '#categories'=>$categories,
+      '#pager' => [
+        '#type' => 'pager',
+      ]
+    ];
+  }
 
 
 }
