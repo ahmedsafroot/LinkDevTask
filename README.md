@@ -29,3 +29,4 @@ This is Task for management Events.
 11. front end user can list and view details event via **[listing-events]**
 12. for view custom block for latest 5 events created go to structure then block layout and put **event block** in any place you want.
 
+**Note:** i have been created custom table for events as task doesn't clear using custom table or else, there another solution as we can create content type for events then create view for page listing and for block
