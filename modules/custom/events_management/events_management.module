@@ -35,12 +35,17 @@ function events_management_theme($existing, $type, $theme, $path) {
         'edit_event_form' => null,
       ]
     ],
-
     'listing_events' => [
       'variables' => [
         'events' => null,
         'categories'=>null,
         'pager' => NULL,
+      ]
+    ],
+    'event_block' => [
+      'variables' => [
+        'events' => null,
+        'categories'=>null
       ]
     ],
 

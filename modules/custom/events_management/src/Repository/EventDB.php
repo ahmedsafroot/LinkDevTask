@@ -154,4 +154,16 @@ class EventDB {
     return $result;
   }
 
+  /**
+   * This function get latest 5 events created
+   */
+  public static function get_latest_events(){
+    self::initialize();
+
+    $query = self::$db_conn->select('events', 'e');
+    $query->fields('e');
+    $result = $query->range(0,5)->orderBy('created_at','DESC')->execute()->fetchAll(\PDO::FETCH_ASSOC);
+    return $result;
+  }
+
 }

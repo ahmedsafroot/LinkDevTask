@@ -37,6 +37,8 @@ events_management.view_event:
     _controller: '\Drupal\events_management\Controller\EventsController::view_event'
   requirements:
     _permission: 'access content+access administration pages'
+  options:
+    no_cache: 'TRUE'
 
 events_management.edit_event:
   path: '/admin/edit-event/{id}'
@@ -61,3 +63,5 @@ events_management.listing_events:
     _controller: '\Drupal\events_management\Controller\EventsController::listing_events'
   requirements:
     _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
